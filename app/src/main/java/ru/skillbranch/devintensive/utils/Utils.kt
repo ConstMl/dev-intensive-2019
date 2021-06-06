@@ -14,9 +14,7 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        //TODO
-        // вернуть инициалы
-        return "toInitials not implemented"
+        return Translate.toTranslateFirstLatter(firstName!!) + Translate.toTranslateFirstLatter(lastName!!)
     }
 }
 
@@ -90,6 +88,17 @@ class Translate {
             "ю" to "yu",
             "я" to "ya"
         )
+
+        fun toTranslateFirstLatter(text: String): String {
+            val sb = StringBuilder(1)
+            val l = text.substring(0, 1)
+            if (letters.containsKey(l)) {
+                sb.append(letters[l])
+            } else {
+                sb.append(l)
+            }
+            return sb.toString()
+        }
 
         fun toTranslate(text: String): String {
             val sb = StringBuilder(text.length)
