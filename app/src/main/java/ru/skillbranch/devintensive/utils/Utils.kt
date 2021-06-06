@@ -1,11 +1,11 @@
 package ru.skillbranch.devintensive.utils
 
 object Utils {
-    fun parseFullName(fullName: String?) : Pair<String?, String?> {
+    fun parseFullName(fullName: String?): Pair<String?, String?> {
         // TODO FIX ME
         val parts: List<String>? = fullName?.split(" ")
-        val firstName = parts?.getOrNull(0)
-        val lastName = parts?.getOrNull(1)
+        val firstName = if (parts?.getOrNull(0).isNullOrEmpty()) "Undefined" else parts?.get(0)
+        val lastName = if (parts?.getOrNull(1).isNullOrEmpty()) "Undefined" else parts?.get(1)
         return firstName to lastName
     }
 
