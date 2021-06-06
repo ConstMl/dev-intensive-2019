@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUtils
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import java.util.*
 
@@ -124,5 +121,15 @@ class ExampleUnitTest {
 
         println(txtMessage.formatMessage())
         println(imgMessage.formatMessage())
+    }
+
+    @Test
+    fun test_humanizeDiff() {
+        // and change TimeUtils
+        for (i in 0..1000 step 30) {
+            println("$i")
+            val dat = Date().add(-i, TimeUtils.DAY);
+            println("$dat - ${dat.humanizeDiff()}");
+        }
     }
 }
