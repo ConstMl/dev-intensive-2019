@@ -27,14 +27,9 @@ data class User(
     constructor(id: String) : this(id, firstName = "John", lastName = "Doe")
 
     init {
-        println(
-            "It's Alive! \n" +
-                    "${if (lastName === "Doe") "FName: $firstName, LName: $lastName" else "Else: FName: $firstName, LName: $lastName"}\n"
-        )
+        println("Id: $id, FName: $firstName, LName: $lastName")
     }
 
-    // Починить фкнцию
-    // плохо проходит тест
     companion object Factory {
         private var lastId: Int = -1
         fun makeUser(fullName: String?): User {
@@ -45,30 +40,4 @@ data class User(
             )
         }
     }
-
-
-//    private fun getIntro(): String = """
-//        qwe qweqweqwe qweqweqw
-//        qweqw qweqweqw eqweqwe !!!!
-//
-//        qewe
-//
-//        qweqwrqwrqwe qweqwe qqweqw weq
-//        ${"\n\n\n"}
-//        $firstName $lastName
-//    """.trimIndent()
-
-//    fun printMe() = println(
-//        """
-//        id: $id
-//        firstName: $firstName
-//        lastName: $lastName
-//        avatar: $avatar
-//        rating: $rating
-//        respect: $respect
-//        lastVisit: $lastVisit
-//        """.trimIndent()
-//    )
-
-
 }
